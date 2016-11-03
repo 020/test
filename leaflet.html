@@ -27,6 +27,17 @@
   L.esri.featureLayer({
     url: 'https://services.slip.wa.gov.au/public/rest/services/Landgate_Public_Services/Admin_Public_Services/MapServer/4'
   }).addTo(map);
+  
+  var popup = L.popup();
+
+  function onMapClick(e) {
+      popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+   }
+
+   mymap.on('click', onMapClick);
 </script>
 
 </body>
